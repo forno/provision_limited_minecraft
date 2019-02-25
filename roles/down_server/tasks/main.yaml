@@ -1,0 +1,6 @@
+---
+- name: launch the ec2 server
+  ec2_instance:
+    instance_ids: "{{ minecraft_ec2_instances }}"
+    region: "{{ aws_region }}"
+    state: stopped

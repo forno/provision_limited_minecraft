@@ -1,0 +1,10 @@
+---
+- include: set_timezone_to_asia_tokyo.yaml
+- include: ensure_ansible_on_apt.yaml
+  when: ansible_facts['os_family'] == 'Debian'
+- include: ensure_ansible_on_pip.yaml
+  when: ansible_facts['os_family'] == 'RedHat'
+- include: put_ansible_key.yaml
+  become: no
+- include: set_manage_minecraft_cron.yaml
+  become: no

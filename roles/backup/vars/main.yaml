@@ -1,0 +1,2 @@
+git_user: "{{ vault_git_user }}"
+git_token: "{{ vault_git_token }}"

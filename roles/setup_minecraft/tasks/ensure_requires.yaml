@@ -1,0 +1,17 @@
+---
+- name: ensure the requires on apt
+  apt:
+    name:
+    - default-jre
+    - git
+    - screen
+    state: latest
+  when: ansible_facts['os_family'] == 'Debian'
+- name: ensure the requires on yum
+  yum:
+    name:
+    - git
+    - java
+    - screen
+    state: latest
+  when: ansible_facts['os_family'] == 'RedHat'

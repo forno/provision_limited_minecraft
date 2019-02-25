@@ -1,0 +1,5 @@
+---
+- name: enable the minecraft service
+  service:
+    name: minecraft
+    state: started

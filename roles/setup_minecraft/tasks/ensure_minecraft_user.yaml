@@ -1,0 +1,6 @@
+---
+- name: ensure minecraft linux user
+  user:
+    name: "{{ execute_user }}"
+    system: yes
+    home: "{{ minecraft_base_directory }}"

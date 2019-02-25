@@ -1,0 +1,13 @@
+- name: stage the server directory on git
+  command: git add -A
+  args:
+    chdir: "{{ minecraft_directory }}"
+- name: make backup on git
+  command: "git commit -m 'Shutdown data: {{ ansible_date_time.iso8601 }}'"
+  args:
+    chdir: "{{ minecraft_directory }}"
+  ignore_errors: yes
+- name: push the repository
+  command: "git push {{ git_protocol }}://{{ git_user }}:{{ git_token }}@{{ minecraft_repository }} master"
+  args:
+    chdir: "{{ minecraft_directory }}"

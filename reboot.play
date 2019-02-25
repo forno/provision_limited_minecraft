@@ -1,0 +1,6 @@
+---
+- import_playbook: stop.play
+- hosts: minecraft
+  become: yes
+  roles:
+  - reboot

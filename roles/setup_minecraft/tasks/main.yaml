@@ -1,0 +1,7 @@
+---
+- include: ensure_requires.yaml
+- include: ensure_minecraft_user.yaml
+- include: download_minecraft_world.yaml
+  become: yes
+  become_user: "{{ execute_user }}"
+- include: setup_minecraft_service.yaml

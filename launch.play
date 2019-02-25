@@ -1,0 +1,5 @@
+---
+- hosts: manager
+  roles:
+  - launch_server
+- import_playbook: start.play

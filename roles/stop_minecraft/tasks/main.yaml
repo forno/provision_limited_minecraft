@@ -1,0 +1,5 @@
+---
+- name: stop the minecraft server
+  service:
+    name: minecraft
+    state: stopped

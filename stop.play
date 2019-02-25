@@ -1,0 +1,9 @@
+---
+- hosts: minecraft
+  become: yes
+  roles:
+  - stop_minecraft
+  - role: backup
+    become: yes
+    become_user: "{{ execute_user }}"
+  - common

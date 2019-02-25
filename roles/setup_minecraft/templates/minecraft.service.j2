@@ -1,0 +1,39 @@
+[Unit]
+Description=Minecraft Server
+After=network.target
+
+[Service]
+WorkingDirectory={{ minecraft_directory }}
+PrivateUsers=true
+User=minecraft
+Group=minecraft
+ProtectSystem=full
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+
+ExecStart=/bin/sh -c '/usr/bin/screen -DmS minecraft /usr/bin/java -server -Xms3g -Xmx3g -jar server.jar nogui'
+
+ExecReload=/usr/bin/screen -p 0 -S minecraft -X eval 'stuff "reload"\\015'
+
+ExecStop=/usr/bin/screen -p 0 -S minecraft -X eval 'stuff "say SERVER SHUTTING DOWN. Saving map..."\\015'
+ExecStop=/usr/bin/screen -p 0 -S minecraft -X eval 'stuff "save-all"\\015'
+ExecStop=/usr/bin/screen -p 0 -S minecraft -X eval 'stuff "stop"\\015'
+
+Restart=on-failure
+RestartSec=60s
+
+[Install]
+WantedBy=multi-user.target
+
+#########
+# HowTo
+#########
+#
+# Prepare {{ minecraft_directory }} for minecraft
+# Add minecraft_server.jar into dir with other conf files for minecraft server
+#
+# Enable/Start systemd service
+#    systemctl enable minecraft
+#    systemctl start minecraft

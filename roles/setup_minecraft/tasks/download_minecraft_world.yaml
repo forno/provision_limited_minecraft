@@ -1,0 +1,21 @@
+---
+- name: download minecraft data
+  git:
+    repo: "{{ item }}" # avoid hangup
+    dest: "{{ minecraft_directory }}"
+    depth: 1
+  ignore_errors: True
+  loop:
+  - "{{ git_protocol }}://{{ minecraft_repository }}"
+- name: set the user.name of git
+  git_config:
+    name: user.name
+    repo: "{{ minecraft_directory }}"
+    scope: local
+    value: "{{ git_config_name }}"
+- name: set the user.email of git
+  git_config:
+    name: user.email
+    repo: "{{ minecraft_directory }}"
+    scope: local
+    value: "{{ git_config_email }}"

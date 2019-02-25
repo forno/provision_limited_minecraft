@@ -1,0 +1,6 @@
+---
+- name: put ansible key file
+  template:
+    src: key_ansible.j2
+    dest: "{{ ansible_key_path }}"
+    mode: 0600

@@ -1,0 +1,11 @@
+---
+- hosts: manager
+  become: yes
+  roles:
+  - common
+  - setup_manager
+- hosts: minecraft
+  become: yes
+  roles:
+  - common
+  - setup_minecraft

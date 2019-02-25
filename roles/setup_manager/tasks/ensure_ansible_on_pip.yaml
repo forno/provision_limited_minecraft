@@ -1,0 +1,14 @@
+---
+- name: ensure the lastest pip
+  easy_install:
+    name: pip
+    state: latest
+  ignore_errors: yes
+- name: ensure the lastest requires on pip
+  pip:
+    name:
+    - ansible
+    - awscli
+    - boto3
+    - botocore
+    state: latest

@@ -1,0 +1,8 @@
+---
+git_protocol: https
+minecraft_repository: github.com/forno/xmaho_minecraft.git
+git_config_name: FORNO
+git_config_email: forno@xmaho.link
+execute_user: minecraft
+minecraft_base_directory: /opt/forno
+minecraft_directory: "{{ minecraft_base_directory }}/minecraft"

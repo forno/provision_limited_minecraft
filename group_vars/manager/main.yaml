@@ -1,0 +1,6 @@
+---
+ansible_directory: $HOME/ws/provision_limited_minecraft
+ansible_repository: https://github.com/forno/provision_limited_minecraft.git
+aws_region: ap-northeast-1
+minecraft_ec2_instances:
+- i-040eb27043f74473a
