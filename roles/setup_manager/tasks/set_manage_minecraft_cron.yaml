@@ -9,11 +9,11 @@
   cron:
     name: down the server
     minute: 0
-    hour: 12
+    hour: 1
     job: "cd {{ ansible_directory }}; ansible-playbook down.play --vault-id {{ ansible_key_path }}"
 - name: set the cron for reboot to minecraft server
   cron:
     name: launch the server
     minute: 0
-    hour: 12
+    hour: 19
     job: "cd {{ ansible_directory }}; ansible-playbook launch.play --vault-id {{ ansible_key_path }}"

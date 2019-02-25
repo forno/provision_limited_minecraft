@@ -2,6 +2,7 @@
 - hosts: manager
   become: yes
   roles:
+  - launch_server
   - common
   - setup_manager
 - hosts: minecraft
