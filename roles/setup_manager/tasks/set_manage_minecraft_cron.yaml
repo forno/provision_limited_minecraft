@@ -5,15 +5,17 @@
     dest: "{{ ansible_directory }}"
   loop:
   - "{{ ansible_repository }}"
-- name: set the cron for reboot to minecraft server
+- name: set the cron for stop to minecraft server
   cron:
     name: down the server
     minute: 0
     hour: 1
     job: "cd {{ ansible_directory }}; ansible-playbook down.play --vault-id {{ ansible_key_path }}"
-- name: set the cron for reboot to minecraft server
+  notify: restart crond
+- name: set the cron for start to minecraft server
   cron:
     name: launch the server
     minute: 0
     hour: 19
     job: "cd {{ ansible_directory }}; ansible-playbook launch.play --vault-id {{ ansible_key_path }}"
+  notify: restart crond
