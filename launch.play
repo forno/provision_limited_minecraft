@@ -13,3 +13,4 @@
   - role: post_tweet
     vars:
       tweet_content: "{{ lookup('pipe', 'date') }}: しせ民Minecraftサーバ起動したよ！遊びに来てねっ"
+    tags: notice

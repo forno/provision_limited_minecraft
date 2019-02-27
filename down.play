@@ -8,3 +8,4 @@
   - role: post_tweet
     vars:
       tweet_content: "{{ lookup('pipe', 'date') }}: しせ民Minecraftサーバ停止したよ"
+    tags: notice
