@@ -6,5 +6,7 @@
   when: ansible_facts['os_family'] == 'RedHat'
 - include: put_ansible_key.yaml
   become: no
+- include: ensure_twurl.yaml
+  become: no
 - include: set_manage_minecraft_cron.yaml
   become: no

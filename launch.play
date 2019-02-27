@@ -3,3 +3,8 @@
   roles:
   - launch_server
 - import_playbook: start.play
+- hosts: manager
+  roles:
+  - role: post_tweet
+    vars:
+      tweet_content: "{{ ansible_date_time.iso8601 }}: しせ民Minecraftサーバ起動したよ！遊びに来てねっ"

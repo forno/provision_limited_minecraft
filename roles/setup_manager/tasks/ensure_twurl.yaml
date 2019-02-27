@@ -1,0 +1,10 @@
+---
+- name: ensure gem by yum
+  yum:
+    name: gem
+    state: latest
+  become: yes
+- name: ensure twurl
+  gem:
+    name: twurl
+    state: latest

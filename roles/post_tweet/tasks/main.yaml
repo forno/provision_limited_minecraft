@@ -1,0 +1,3 @@
+---
+- name: notice message to twitter
+  command: "$HOME/bin/twurl -X POST -d 'status={{ tweet_content }}' /1.1/statuses/update.json"
