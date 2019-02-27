@@ -2,9 +2,14 @@
 - hosts: manager
   roles:
   - launch_server
+- hosts: minecraft
+  gather_facts: no
+  tasks:
+  - name: wait for system to become reachable over ssh
+    wait_for_connection:
 - import_playbook: start.play
 - hosts: manager
   roles:
   - role: post_tweet
     vars:
-      tweet_content: "{{ ansible_date_time.iso8601 }}: しせ民Minecraftサーバ起動したよ！遊びに来てねっ"
+      tweet_content: "{{ lookup('pipe', 'date') }}: しせ民Minecraftサーバ起動したよ！遊びに来てねっ"

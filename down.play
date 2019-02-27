@@ -7,4 +7,4 @@
   roles:
   - role: post_tweet
     vars:
-      tweet_content: "{{ ansible_date_time.iso8601 }}: しせ民Minecraftサーバ停止したよ"
+      tweet_content: "{{ lookup('pipe', 'date') }}: しせ民Minecraftサーバ停止したよ"
