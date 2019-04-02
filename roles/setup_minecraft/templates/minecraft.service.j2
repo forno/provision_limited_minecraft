@@ -13,7 +13,7 @@ ProtectKernelTunables=true
 ProtectKernelModules=true
 ProtectControlGroups=true
 
-ExecStart=/bin/sh -c '/usr/bin/screen -DmS minecraft /usr/bin/java -server -Xms3g -Xmx3g -jar server.jar nogui'
+ExecStart=/bin/sh -c '/usr/bin/screen -DmS minecraft /usr/bin/java -server -Xms1563m -Xmx1563m -jar server.jar nogui'
 
 ExecReload=/usr/bin/screen -p 0 -S minecraft -X eval 'stuff "reload"\\015'
 
